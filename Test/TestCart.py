@@ -6,12 +6,12 @@ class TestCart:
     def __init__(self):
         self.cart = Cart()
 
-        self.cart.add(Item("A", "A-01", 'A item', 1.00))
-        self.cart.add(Item("B", "B-01", 'B item', 2.00))
-        self.cart.add(Item("C", "C-01", 'C item', 3.00))
-        self.cart.add(Item("D", "D-01", 'D item', 4.00))
-        self.cart.add(Item("F", "E-01", 'E item', 5.00))
-        self.cart.add(Item("A", "A-01", 'A item', 1.00))
+        self.cart.add(Item("A", "A-01", 1.00, 'A item'))
+        self.cart.add(Item("B", "B-01", 2.00, 'B item'))
+        self.cart.add(Item("C", "C-01", 3.00, 'C item'))
+        self.cart.add(Item("D", "D-01", 4.00, 'D item'))
+        self.cart.add(Item("F", "E-01", 5.00, 'E item'))
+        self.cart.add(Item("A", "A-01", 1.00, 'A item'))
 
     def TestTotal(self):
         print("TestTotal")
@@ -37,8 +37,11 @@ class TestCart:
 
     def TestRemoveItem(self):
         print("TestRemoveItem")
-        item = self.cart.remove('A-01')
-        if (2 == item['count']):
+        prev = self.cart.count()
+        self.cart.remove('A-01')
+        now = self.cart.count()
+
+        if (now + 1 == prev):
             print("pass")
         else:
             print("failed")

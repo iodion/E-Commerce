@@ -3,7 +3,7 @@ from Domain.Item import Item
 class TestItem:
 
     def __init__(self):
-        self.item = Item("Bicycle", "BIC-2013", "BMX", 56.99)
+        self.item = Item("Bicycle", "BIC-2013", 56.99, "BMX")
 
     def testGetName(self):
         print("testGetName")
